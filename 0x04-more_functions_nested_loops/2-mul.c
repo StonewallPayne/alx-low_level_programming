@@ -1,4 +1,4 @@
-#inclue "main.h"
+#include "main.h"
 
 /**
  * mul -> multipying 2 numbers
