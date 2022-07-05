@@ -1,6 +1,3 @@
-#ifndef __pi__
-#define __pi__
-
+#ifndef PI
 #define PI 3.14159265359
-
 #endif
