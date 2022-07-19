@@ -9,7 +9,7 @@
  * @index: The index of the node to be deleted - indices start at 0.
  *
  * Return: On success - 1.
- * Return: On failure - -1.
+ * On failure - -1.
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
