@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdlib.h>
 
 /**
  * free_listp2 - frees a linked list
@@ -6,17 +7,17 @@
  *
  * Return: no return.
  */
-void free_listp2(listp_t **head)
+void free_listp2(listint_t **head)
 {
-	listp_t *temp;
-	listp_t *curr;
+	listint_t *temp;
+	listint_t *curr;
 
 	if (head != NULL)
 	{
 		curr = *head;
 		while ((temp = curr) != NULL)
 		{
-			curr = curr->next;
+			curr = curr;
 			free(temp);
 		}
 		*head = NULL;
@@ -32,36 +33,32 @@ void free_listp2(listp_t **head)
 size_t free_listint_safe(listint_t **h)
 {
 	size_t nnodes = 0;
-	listp_t *hptr, *new, *add;
+	listint_t *hptr, *new, *add;
 	listint_t *curr;
 
 	hptr = NULL;
 	while (*h != NULL)
 	{
-		new = malloc(sizeof(listp_t));
+		new = malloc(sizeof(listint_t));
 
 		if (new == NULL)
 			exit(98);
 
-		new->p = (void *)*h;
-		new->next = hptr;
 		hptr = new;
 
 		add = hptr;
 
 		while (add->next != NULL)
 		{
-			add = add->next;
-			if (*h == add->p)
+			if (*h == add)
 			{
 				*h = NULL;
-				free_listp2(&hptr);
+				free_listint2(&hptr);
 				return (nnodes);
 			}
 		}
 
 		curr = *h;
-		*h = (*h)->next;
 		free(curr);
 		nnodes++;
 	}
